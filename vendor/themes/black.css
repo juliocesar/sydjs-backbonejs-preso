@@ -3,7 +3,16 @@ body          { background-color: #0C0C0C; color: #FFF; font-family: 'tenby-four
 span.not  { text-decoration: line-through }
 
 /* override centered */
-body .slide             { position: absolute; text-align: left }
+body .slide             {
+  color: rgba(0, 0, 0, 0);
+  position: absolute; 
+  text-align: left; 
+  -webkit-transition: all 300ms ease; 
+  -moz-transition: all 300ms ease; 
+  -o-transition: 300ms ease; 
+  transition: all 300ms ease;
+}
+body .slide.current     { color: rgba(255, 255, 255, 1) }
 body .slide h1, h2, h3  { font-weight: 700 }
 body .slide p           { font-weight: 300 }
 

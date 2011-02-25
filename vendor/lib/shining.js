@@ -255,10 +255,16 @@
   });
   
   when('slidesloaded', function() {
-    $(Shining.config.slides).each(function() {
-      $('body').append('<div class="slide" id="' + this.split('.').join('') + '">' + 
+    $(Shining.config.slides).each(function(i) {
+      var slide = $('<div class="slide" id="' + this.split('.').join('') + '">' + 
         Shining.slides._loaded[this].markup + 
       '</div>');
+      slide.css({
+        '-moz-transform'    : 'scale(' + (1 - (i / 10)) + ') translate(-' + (0 + i) + 'em, -' + (0 + i) + 'em)',
+        '-webkit-transform' : 'scale(' + (1 - (i / 10)) + ') translate(' + (0 + i) + 'em, 0)'
+      });
+      
+      $('body').append(slide);
     });
   });
 
