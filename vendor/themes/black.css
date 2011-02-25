@@ -1,0 +1,16 @@
+body          { background-color: #0C0C0C; color: #FFF; font-family: 'tenby-four-1'; padding: 0 0 0 10% }
+
+span.not  { text-decoration: line-through }
+
+/* override centered */
+body .slide             { position: absolute; text-align: left }
+body .slide h1, h2, h3  { font-weight: 700 }
+body .slide p           { font-weight: 300 }
+
+a                 { color: #EB321F }
+ul, ol            { list-style-position: inside }
+ul                { list-style-type: disc }
+ol                { list-style-type: decimal }
+
+em            { color: #49FF50 }
+strong        { color: #FFAB49; font-weight: bold }

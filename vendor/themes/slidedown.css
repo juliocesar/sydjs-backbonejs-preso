@@ -1,0 +1,14 @@
+body          { background-color: #FFFFFF }
+div.slide     { display: block !important; margin: 0; padding: 0 2em; color: #000000 }
+
+/* override centered */
+body .slide h1, h2, h3 { text-align: left; margin: 0 }
+body .slide p          { text-align: left; margin: 0 }
+
+a                 { color: #499DFF }
+ul, ol            { list-style-position: inside }
+ul                { list-style-type: disc }
+ol                { list-style-type: decimal }
+
+em            { color: #49FF50 }
+strong        { color: #FFAB49; font-weight: bold }

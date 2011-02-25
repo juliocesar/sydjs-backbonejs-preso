@@ -1,0 +1,15 @@
+{
+  "slides": [
+    "welcome.md",
+    "whatis.md",
+    "has.md",
+    "ideally.md"
+  ],
+  "title": "Your presentation",
+  "plugins": [
+    "resize",
+    "iphone"
+  ],
+  "theme": "black",
+  "transitions": "fade"
+}

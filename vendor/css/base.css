@@ -1,0 +1,94 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+----------------------------------------------------------------------------------------- */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+margin : 0; padding : 0; border : 0; outline : 0; font-size : 100%; vertical-align : baseline; background : transparent; }
+body { line-height : 1; }
+ol, ul { list-style-type : none; }
+:focus { outline : 0 }
+ins { text-decoration : none; }
+del { text-decoration : line-through }
+
+body      { font: 12px/1.5 "Lucida Grande", Tahoma, serif; overflow: hidden !important; text-align: center }
+div.slide { display: none; position: relative }
+div.slide.current { display: block }
+
+.no-text-shadow { text-shadow: none }
+.no-drop-shadow {}
+.hidden         { display: none }
+.visible        { opacity: 1; display: static }
+.centered       { text-align: center; margin: 0 auto }
+
+html, body { height: 100% }
+
+h1    { font-size: 3.6em }
+h2    { font-size: 3.2em }
+h3    { font-size: 3em }
+p, li { font-size: 1.4em }
+p     { margin: 0.5em 0 }
+
+ul    { display: inline-block; margin-left: 2em }
+a     { cursor: pointer }
+
+aside, .step { display: none }
+
+#help {
+  font-family: Helvetica, sans-serif !important;
+  display: inline-block;
+  font-size: 100%;
+  opacity: 0;
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 10px;
+}
+
+@media all and (max-device-width: 480px) {
+  body { position: fixed; top: 0; bottom: 0; left: 0; right: 0 }
+  #stage { position: static }
+  #help     { font-size: 200% }
+  h1    { font-size: 3em }
+  h2    { font-size: 2.8em }
+  h3    { font-size: 2.5em }
+  p, li { font-size: 1.6em }
+  p     { margin: 0.5em 0 }
+  div.slide { position: absolute; width: 100% }
+  #stage { -webkit-box-shadow: none !important; border: 0 !important }
+  .step { display: inline-block }
+}
+
+@media all and (max-device-width: 1024px) {
+  div.slide { 
+    width: 768px !important;
+    position: absolute;
+    display: inline-block;
+  }
+  #help     { font-size: 200% }
+  h1    { font-size: 3em }
+  h2    { font-size: 2.8em }
+  h3    { font-size: 2.5em }
+  p, li { font-size: 1.6em }
+  p     { margin: 0.5em 0 }
+  .step { display: inline-block }
+}
+
+#note {
+	position: fixed;
+	margin-bottom: 10px;
+	text-align: left;
+	font-size: 100%;
+	bottom: 40px;
+	right: 10px;
+	padding: 0.5em 1em;
+	color: #000;
+	background: #bc8a09; 
+	background: -moz-linear-gradient(center top , #e6d15e, #cab853) repeat scroll 0 0 transparent;
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e6d15e), to(#cab853));	
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px
+}
+#note:after {	content: "\00a0";	display: block; position: absolute;	bottom: -30px; right: 30%;	width: 0;	height: 0; border-width: 0 20px 30px 0px;	border-style: solid; border-color: transparent #cab853 }
+#note a     { color: #000; border-bottom: 1px dotted #000 }
