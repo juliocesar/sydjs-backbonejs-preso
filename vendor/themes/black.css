@@ -28,10 +28,10 @@ body div.slide.previous    {
 }
 body div.slide.previous a  { color: inherit; text-shadow: 0px 0px 6px rgba(235, 50, 31, 0.3) }
 body div.slide.next    { 
-  -moz-transform:     translate(2em, 2em) scale(1.1);
-  -webkit-transform:  translate(2em, 2em) scale(1.1);  
-  -o-transform:       translate(2em, 2em) scale(1.1);
-  transform:          translate(2em, 2em) scale(1.1);
+  -moz-transform:     translate(2em, 2em) scale(1.2);
+  -webkit-transform:  translate(2em, 2em) scale(1.2);  
+  -o-transform:       translate(2em, 2em) scale(1.2);
+  transform:          translate(2em, 2em) scale(1.2);
   display: block;
   text-shadow: 0px 0px 6px rgba(255, 255, 255, 0)
 }
