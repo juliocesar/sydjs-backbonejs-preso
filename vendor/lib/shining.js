@@ -21,7 +21,7 @@
       next:     function() { return this._slides[ this._slides.indexOf(this.current()) + 1 ]; },
       previous: function() {
         var previous = this._slides[ this._slides.indexOf(this.current()) - 1 ];
-        return previous || this.first();
+        return previous;
       },
       add:      function(slides)  { return Array.prototype.push.apply(this._slides, slides); },
       loaded:   function(name)    { return !!Shining.slides._loaded[name]; },
@@ -34,8 +34,20 @@
     // public methods
     firstSlide:     function() { playSlide(Shining.slides.first()); },
     lastSlide:      function() { playSlide(Shining.slides.last()); },
-    nextSlide:      function() { trigger('nextslide'); },
-    previousSlide:  function() { trigger('previousslide'); },
+    nextSlide:      function() { 
+      if (!Shining.slides.next()) return false;
+      $('.current:first').next().addClass('current');
+      $('.previous').removeClass('previous');  
+      $('.current:first').addClass('previous').removeClass('current');
+      $('.next').removeClass('next');    
+      trigger('nextslide'); 
+    },
+    previousSlide:  function() { 
+      if (!Shining.slides.previous()) return false;      
+      $('body .slide.current:first').addClass('next').removeClass('current');
+      $('body .slide.previous').addClass('current').removeClass('previous');
+      trigger('previousslide'); 
+    },
     setTheme:       setTheme,
     playSlide:      playSlide,
     help:     help,
@@ -89,18 +101,6 @@
       }
     }
   };
-
-  // Transitions
-  var Transitions = {
-    'fade': {
-      enter: function() { $('div.slide').fadeIn(200); },
-      leave: function() { $('div.slide').fadeOut(200); }
-    },
-    'none': {
-      enter: function() { $('div.slide').show(); },
-      leave: function() { $('div.slide').hide(); }
-    }
-  }
 
   function help(message, duration, force) {
     if (Shining.config.help == false && force != true) return false;
@@ -179,25 +179,12 @@
   }
 
   function playSlide(name) {
-    $('.previous').removeClass('previous');
-    $('.next').removeClass('next');    
-    if (name === Shining.slides.next()) {
-      $('body .slide.current:first').next().addClass('current');
-      $('body .slide.current:first').addClass('previous').removeClass('current');
-    } else if(name === Shining.slides.previous()) {
-      $('body .slide.current:first').addClass('next').removeClass('current');
-      $('body .slide.previous').addClass('current').removeClass('previous');
-    }
-    trigger('slideplay', [name]);
+    $('#' + name.split('.').join(''))
+      .addClass('current')
+        .prev().addClass('previous').end()
+        .next().addClass('next');
     Shining.slides.current(name);
-    if (Shining.slides.current() !== Shining.slides.previous()) {
-      $('#' + Shining.config.slides[Shining.config.slides.indexOf(name) - 1].split('.').join('')).addClass('previous');
-    }
-    if (Shining.slides.current() !== Shining.slides.next()) {
-      $('#' + Shining.config.slides[Shining.config.slides.indexOf(name) + 1].split('.').join('')).addClass('next');
-    }
-    $('#' + name.split('.').join('')).addClass('current');
-    centerSlide();
+    trigger('slideplay', [name]);
   }
 
   function loadPlugins() {
@@ -216,7 +203,6 @@
   function loadConfig(callback) {
     $.getJSON('config.json', function(config) {
       Shining.config = config;
-      Shining.config.transitions = Transitions[Shining.config.transitions] ? Shining.config.transitions : 'none';
       Shining.slides.add(config.slides);
       callback.call();
     });

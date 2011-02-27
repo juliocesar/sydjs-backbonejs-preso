@@ -19,19 +19,19 @@ body .slide             {
 }
 body div.slide.current     { color: rgba(255, 255, 255, 1) }
 body div.slide.previous    { 
-  -moz-transform:     translate(-2em, -2em);
-  -webkit-transform:  translate(-2em, -2em);  
-  -o-transform:       translate(-2em, -2em);
-  transform:          translate(-2em, -2em);
+  -moz-transform:     translate(-2em, -2em) scale(0.9);
+  -webkit-transform:  translate(-2em, -2em) scale(0.9);  
+  -o-transform:       translate(-2em, -2em) scale(0.9);
+  transform:          translate(-2em, -2em) scale(0.9);
   display: block; 
   text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.1)
 }
-body div.slide.previous a  { color: inherit; text-shadow: 0px 0px 6px #EB321F }
+body div.slide.previous a  { color: inherit; text-shadow: 0px 0px 6px rgba(235, 50, 31, 0.3) }
 body div.slide.next    { 
-  -moz-transform:     translate(2em, 2em);
-  -webkit-transform:  translate(2em, 2em);  
-  -o-transform:       translate(2em, 2em);
-  transform:          translate(2em, 2em);
+  -moz-transform:     translate(2em, 2em) scale(1.1);
+  -webkit-transform:  translate(2em, 2em) scale(1.1);  
+  -o-transform:       translate(2em, 2em) scale(1.1);
+  transform:          translate(2em, 2em) scale(1.1);
   display: block;
   text-shadow: 0px 0px 6px rgba(255, 255, 255, 0)
 }
