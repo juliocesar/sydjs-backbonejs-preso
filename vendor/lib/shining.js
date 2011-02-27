@@ -112,7 +112,7 @@
       .delay(duration || 500)
       .fadeOut(200, function() { $('#help').remove(); });
   }
-  
+
   function note(message, duration) {
     if (message == false) return $('#note').dequeue();
     $('#note').remove();
@@ -123,7 +123,7 @@
       .delay(parseInt(duration, 10) || 500)
       .animate({marginBottom: 10, opacity: 'toggle'});
   }
-  
+
   function trigger(name, data)  { $(document).trigger(name + '.shining', data); }
   function when(name, method)   { $(document).bind(name + '.shining', method); }
 
@@ -143,15 +143,14 @@
 
   function slideFormat(name)  {
     if (hasNoExtension(name)) return false;
-    var format = name.substr(name.lastIndexOf('.') + 1, name.length).toLowerCase();
-    return format;
+    return name.substr(name.lastIndexOf('.') + 1, name.length).toLowerCase();
   }
 
   function slidePlusExtension(name, extension) {
     return hasNoExtension(name) ? name + '.' + extension : name.substr(0, name.lastIndexOf('.')) + '.' + extension;
   }
 
-  function hasNoExtension(name) { return !(/\.\w+$/.test(name)) }
+  function hasNoExtension(name) { return !(/\.\w+$/.test(name)); }
 
   function compileSlide(name, data) {
     if (!slideFormat(name)) return false;
@@ -164,14 +163,14 @@
     }
     return name;
   }
-  
-  function loadSlides(callback) {    
+
+  function loadSlides(callback) {
     $.getJSON(
       '/slides.json',
       function(slides) {
         Shining.slides._loaded = slides;
         for (slide in slides) {
-          slides[slide].markup = compileSlide(slide, slides[slide].markup)
+          slides[slide].markup = compileSlide(slide, slides[slide].markup);
         };
         trigger('slidesloaded');
         if ($.isFunction(callback)) callback();
@@ -180,9 +179,23 @@
   }
 
   function playSlide(name) {
-    $('body .slide.current').removeClass('current');
+    $('.previous').removeClass('previous');
+    $('.next').removeClass('next');    
+    if (name === Shining.slides.next()) {
+      $('body .slide.current:first').next().addClass('current');
+      $('body .slide.current:first').addClass('previous').removeClass('current');
+    } else if(name === Shining.slides.previous()) {
+      $('body .slide.current:first').addClass('next').removeClass('current');
+      $('body .slide.previous').addClass('current').removeClass('previous');
+    }
     trigger('slideplay', [name]);
-    Shining.slides.current(name);    
+    Shining.slides.current(name);
+    if (Shining.slides.current() !== Shining.slides.previous()) {
+      $('#' + Shining.config.slides[Shining.config.slides.indexOf(name) - 1].split('.').join('')).addClass('previous');
+    }
+    if (Shining.slides.current() !== Shining.slides.next()) {
+      $('#' + Shining.config.slides[Shining.config.slides.indexOf(name) + 1].split('.').join('')).addClass('next');
+    }
     $('#' + name.split('.').join('')).addClass('current');
     centerSlide();
   }
@@ -191,7 +204,7 @@
     if (Shining.config.plugins && Shining.config.plugins.length) {
       $(Shining.config.plugins).each(function() {
         $('head').append('<script type="text/javascript" src="vendor/lib/plugins/' + this + '.js"></script>');
-      })
+      });
     }
   }
 
@@ -209,7 +222,7 @@
     });
   }
 
-  function centerSlide() {    
+  function centerSlide() {
     var top = ($(window).height() - $('div.slide:visible').outerHeight()) / 2.4;
     if (top < 0) top = 0;
     $('div.slide').css({ top: top });
@@ -247,23 +260,18 @@
     loadSlideStyle(name);
     Shining.scripts.runSlide(name);
     if (SyntaxHighlighter) SyntaxHighlighter.highlight({gutter: false, toolbar: false});
-    if ($('body aside').length) setTimeout(function() { note($('body aside').html(), 5000) }, 500);
+    if ($('body aside').length) setTimeout(function() { note($('body aside').html(), 5000); }, 500);
   });
 
   when('slidesloaded', function() {
     help('← (previous slide), → or SPACE BAR (next slide)', 3000);
   });
-  
+
   when('slidesloaded', function() {
     $(Shining.config.slides).each(function(i) {
-      var slide = $('<div class="slide" id="' + this.split('.').join('') + '">' + 
-        Shining.slides._loaded[this].markup + 
+      var slide = $('<div class="slide" id="' + this.split('.').join('') + '">' +
+        Shining.slides._loaded[this].markup +
       '</div>');
-      slide.css({
-        '-moz-transform'    : 'scale(' + (1 - (i / 10)) + ') translate(-' + (0 + i) + 'em, -' + (0 + i) + 'em)',
-        '-webkit-transform' : 'scale(' + (1 - (i / 10)) + ') translate(' + (0 + i) + 'em, 0)'
-      });
-      
       $('body').append(slide);
     });
   });
