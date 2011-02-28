@@ -35,12 +35,16 @@ body div.slide.next    {
   display: block;
   text-shadow: 0px 0px 6px rgba(255, 255, 255, 0)
 }
+body div.slide.next a {
+  color: transparent; text-shadow: 0px 0px 0px 11px rgba(235, 50, 31, 0.3);
+}
 body div.slide h1, h2, h3  { font-weight: 700 }
-body div.slide p           { font-weight: 300 }
+body div.slide p           { font-weight: 300; font-size: 1.6em }
+body div.slide ul           { font-size: 1.4em}
 
 a                 { color: #EB321F }
 ul, ol            { list-style-position: inside }
-ul                { list-style-type: disc }
+ul                { list-style-type: none }
 ol                { list-style-type: decimal }
 
 em            { color: #49FF50 }
