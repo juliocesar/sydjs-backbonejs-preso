@@ -7,10 +7,11 @@ body .slide             {
   color: transparent;
   position: absolute; 
   text-align: left; 
-  -webkit-transition: all 300ms ease; 
-  -moz-transition: all 300ms ease; 
-  -o-transition: 300ms ease; 
-  transition: all 300ms ease;
+  -webkit-transition: all 300ms ease-out; 
+  -moz-transition: all 300ms ease-out; 
+  -o-transition: 300ms ease-out; 
+  transition: all 300ms ease-out;
+    -webkit-transform:  translate(-0.2em, -0.2em) scale (0.95);  
   -webkit-transform-origin: left;
   -moz-transform-origin: left;
   -o-transform-origin: left;
@@ -36,16 +37,16 @@ body div.slide.next    {
   text-shadow: 0px 0px 6px rgba(255, 255, 255, 0)
 }
 body div.slide.next a {
-  color: transparent; text-shadow: 0px 0px 0px 11px rgba(235, 50, 31, 0.3);
+  opacity: 0;
 }
 body div.slide h1, h2, h3  { font-weight: 700 }
 body div.slide p           { font-weight: 300; font-size: 1.6em }
-body div.slide ul           { font-size: 1.4em}
+body div.slide ul           { font-size: 1.4em }
 
 a                 { color: #EB321F }
 ul, ol            { list-style-position: inside }
 ul                { list-style-type: none }
 ol                { list-style-type: decimal }
 
-em            { color: #49FF50 }
-strong        { color: #FFAB49; font-weight: bold }
+em            { font-weight: bold }
+code          { font-size: 1.3em }

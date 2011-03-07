@@ -1,5 +1,5 @@
 # An intro to Backbone.js
 
-And how it can make you happier.
+The ultimate nerdgasm in web development.
 
 By <a href="http://twitter.com/julio_ody">@julio_ody</a>.

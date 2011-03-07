@@ -2,8 +2,8 @@
 
 * "models"
 * "views"
-* controllers <- for real.
+* controllers ← for real.
 
-"Why quotes?", you ask. Because it just gives you the mechanisms for it.
+But it's like a wise Buddhist monk: it only gives you what you <em>really</em> need.
 
-No templating engines, ORMs, or anything. It's brilliant.
+And you can ignore what you don't want from it.

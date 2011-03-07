@@ -3,9 +3,15 @@
     "welcome.md",
     "whatis.md",
     "has.md",
-    "ideally.md"
+    "shall-not-bore.md",
+    "what-matters-is.md",
+    "hash-bangs.md",
+    "no-further-ado.md",
+    "models.md",
+    "models2.md",
+    "models3.md"
   ],
-  "title": "Your presentation",
+  "title": "Backbone.js intro",
   "plugins": [
     "resize",
     "iphone"
