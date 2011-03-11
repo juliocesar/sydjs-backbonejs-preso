@@ -9,7 +9,21 @@
     "no-further-ado.md",
     "models.md",
     "models2.md",
-    "models3.md"
+    "models3.md",
+    "views1.md",
+    "views2.md",
+    "views3.md",
+    "state-machine.md",
+    "controllers1.md",
+    "controllers2.md",
+    "controllers3.md",
+    "now-you-have.md",
+    "templates-twice.md",
+    "slowness.md",
+    "gawker.md",
+    "best-way-to-learn.md",
+    "final-notes.md",
+    "the-end.md"
   ],
   "title": "Backbone.js intro",
   "plugins": [

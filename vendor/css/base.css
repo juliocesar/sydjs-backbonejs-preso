@@ -45,6 +45,8 @@ aside, .step { display: none }
   padding: 10px;
 }
 
+.slide { box-sizing: border-box }
+
 @media all and (max-device-width: 480px) {
   body { position: fixed; top: 0; bottom: 0; left: 0; right: 0 }
   #stage { position: static }
