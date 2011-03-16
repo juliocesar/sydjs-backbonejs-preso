@@ -52,6 +52,7 @@ em            { font-weight: bold }
 code          { font-size: 1.3em }
 
 @media all and (max-device-width: 480px) {
-  body .slide { color: #fff }
+  body .slide { color: #fff; width: 100% !important; -webkit-box-sizing: border-box; }
+  code { word-wrap: break-word }
 
 }
