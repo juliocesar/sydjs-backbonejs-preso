@@ -49,15 +49,13 @@ aside, .step { display: none }
 
 @media all and (max-device-width: 480px) {
   body { position: fixed; top: 0; bottom: 0; left: 0; right: 0 }
-  #stage { position: static }
   #help     { font-size: 200% }
   h1    { font-size: 3em }
   h2    { font-size: 2.8em }
   h3    { font-size: 2.5em }
   p, li { font-size: 1.6em }
   p     { margin: 0.5em 0 }
-  div.slide { position: absolute; width: 100% }
-  #stage { -webkit-box-shadow: none !important; border: 0 !important }
+  body .slide { position: absolute; width: 100% !important; -webkit-box-sizing: border-box; -webkit-transition: none !important }
   .step { display: inline-block }
 }
 
